@@ -19,3 +19,13 @@ kmeans = kmeans.setSeed(1)
 kmodel = kmeans.fit(vcluster_df)
 centers = kmodel.clusterCenters()
 print(centers)
+
+vcluster_df.show()
+
+from pyspark.ml.clustering import BisectingKMeans
+bkmeans = BisectingKMeans().setK(3)
+bkmeans = bkmeans.setSeed(1)
+
+bkmodel = bkmeans.fit(vcluster_df)
+bkcenters = bkmodel.clusterCenters()
+print(bkcenters)
