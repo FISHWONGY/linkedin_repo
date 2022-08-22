@@ -55,4 +55,3 @@ b_df.show()
 buckertizer = Bucketizer(splits=splits, inputCol="features", outputCol="bfeatures")
 bucketed_df = buckertizer.transform(b_df)
 bucketed_df.show()
-
