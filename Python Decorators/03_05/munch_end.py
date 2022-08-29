@@ -1,5 +1,6 @@
 from functools import wraps
 
+
 def munch(start, end):
     def do_munch(func):
         @wraps(func)
@@ -13,8 +14,10 @@ def munch(start, end):
         return wrapper
     return do_munch
 
+
 @munch(0, 10)
 def fib():
     return 'Fibonacci'
+
 
 print(fib())
