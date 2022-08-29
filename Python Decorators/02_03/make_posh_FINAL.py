@@ -8,10 +8,12 @@ def make_posh(func):
         print('+=========+')
         return result
     return wrapper
- 
+
+
 @make_posh
 def pfib():
-    '''Print out Fibonacci'''
+    """Print out Fibonacci"""
     return ' Fibonacci '
+
 
 pfib()
