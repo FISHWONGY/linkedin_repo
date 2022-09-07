@@ -5,7 +5,13 @@ Robin Andrews - https://compucademy.net/
 
 
 def factorial_iterative_while(n):  # Condition-controlled version
-    pass
+    results = 1
+    while n >= 1:
+        results *= n
+        n -= 1
+
+    return results
+    # 5 * 4 * 3 * 2 * 1
 
 
 # Let's do some basic testing

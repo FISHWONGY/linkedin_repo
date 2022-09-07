@@ -14,6 +14,8 @@ def draw_spiral(a_turtle, line_length):
         return
     a_turtle.forward(line_length)
     a_turtle.right(90)
+
+    # This line below is the recursive function call
     draw_spiral(a_turtle, line_length + INCREMENT)
 
 
