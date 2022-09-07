@@ -8,15 +8,15 @@ print ("Original value list is : " + str(sal_info_values))
 
 sal_info={}
 
-print ("#### Method 1 using for in ")
+print("#### Method 1 using for in ")
 indx = 0 
 for key in sal_info_keys:
 	value = sal_info_values[indx]
 	sal_info[key] = value
-	indx=indx+1
+	indx = indx+1
 
 # Printing resultant dictionary 
-print ("Resultant dictionary is : " + str(sal_info))
+print("Resultant dictionary is : " + str(sal_info))
 
 
 
