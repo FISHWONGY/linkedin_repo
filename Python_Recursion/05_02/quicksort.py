@@ -3,11 +3,6 @@ Python Recursion Video Course
 Robin Andrews - https://compucademy.net/
 """
 
-import sys
-
-sys.path.append("..")  # Adds higher directory to python modules path.
-from trace_recursion import trace
-
 
 def quicksort(arr):
     if len(arr) <= 1:
