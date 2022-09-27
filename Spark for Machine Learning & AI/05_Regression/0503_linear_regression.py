@@ -21,5 +21,5 @@ print(lr_model.coefficients) # [-1.9775131067284113,-0.23391642256928327,0.06208
 print(lr_model.intercept) # 454.6092744523414
 print(lr_model.summary.rootMeanSquaredError) # 4.557126016749488, error around 1%
 
-# to save the model
+# to save the model for later usage
 lr_model.save("./linkedin_repo/Spark for Machine Learning & AI/data/lr1.model")
