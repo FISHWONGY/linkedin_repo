@@ -1,4 +1,6 @@
 import numpy as np
+import sys
+sys.path.extend(['/Users/yuawong/Documents/GitHub/linkedin_repo/Testing Python Data Science Code/Ch02/02_01'])
 import transformers as tr
 
 
