@@ -14,7 +14,7 @@ print(messages.head())
 print(messages.shape)
 
 # What portion of our text messages are actually spam?
-messages['label'].value_counts()
+print(messages['label'].value_counts())
 
 # Are we missing any data?
 print('Number of nulls in label: {}'.format(messages['label'].isnull().sum()))

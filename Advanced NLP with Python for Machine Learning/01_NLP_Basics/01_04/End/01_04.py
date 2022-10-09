@@ -6,7 +6,7 @@ messages = pd.read_csv('./linkedin_repo/Advanced NLP with Python for Machine Lea
                        encoding='latin-1')
 messages = messages.drop(labels=["Unnamed: 2", "Unnamed: 3", "Unnamed: 4"], axis=1)
 messages.columns = ["label", "text"]
-messages.head()
+print(messages.head())
 
 """### Remove Punctuation"""
 

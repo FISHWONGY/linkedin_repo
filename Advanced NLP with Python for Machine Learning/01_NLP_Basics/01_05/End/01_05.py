@@ -10,7 +10,7 @@ stopwords = nltk.corpus.stopwords.words('english')
 messages = pd.read_csv('./linkedin_repo/Advanced NLP with Python for Machine Learning/data/spam.csv', encoding='latin-1')
 messages = messages.drop(labels=["Unnamed: 2", "Unnamed: 3", "Unnamed: 4"], axis=1)
 messages.columns = ["label", "text"]
-messages.head()
+print(messages.head())
 
 """### Create Function To Clean Text"""
 
