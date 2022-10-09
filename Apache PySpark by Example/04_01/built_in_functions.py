@@ -20,25 +20,24 @@ print(dir(functions))
 
 **Display the Primary Type column in lower and upper characters, and the first 4 characters of the column**
 """
-
-
-
-
+from pyspark.sql.functions import lower, upper, substring
+help(substring)
+rc.printSchema()
+rc.select(lower(col('Primary Type')), upper(col('Primary Type')), substring(col('Primary Type'), 1, 4)).show(5)
 
 """## Numeric functions
 
 **Show the oldest date and the most recent date**
 """
-
-
-
-
+from pyspark.sql.functions import min, max
+rc.select(min(col('Date')), max(col('Date'))).show(1)
 
 """##Date
 
 ** What is 3 days earlier that the oldest date and 3 days later than the most recent date?**
 """
-
+from pyspark.sql.functions import date_add, date_sub
+rc.select(date_sub(min('Date'), 3), date_add(max('Date'), 3)).show(1)
 
 
 

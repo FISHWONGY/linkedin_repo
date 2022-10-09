@@ -9,6 +9,7 @@ rc = spark.read.csv('/Users/yuawong/Downloads/reported-crimes.csv',
                                             to_timestamp(col('Date'),
                                                          'MM/dd/yyyy hh:mm:ss a')).filter(col('Date') <= lit('2018-11-11'))
 rc.show(5)
+rc.take(1)
 
 
 

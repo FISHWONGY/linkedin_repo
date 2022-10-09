@@ -12,20 +12,10 @@ rc.show(5)
 
 **What percentage of reported crimes resulted in an arrest?**
 """
-
-
-
-
-
-
-
-
+rc.select('Arrest').distinct().show()
+rc.printSchema()
+rc.filter(col('Arrest') == 'true').count() / rc.select('Arrest').count()
 
 """  **What are the top 3 locations for reported crimes?**"""
-
-
-
-
-
-
+rc.groupby('Location Description').count().orderBy('count', ascending=False).show(3)
 

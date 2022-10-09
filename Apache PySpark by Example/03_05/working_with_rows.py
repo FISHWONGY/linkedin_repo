@@ -13,21 +13,17 @@ rc.show(5)
 
 **Add the reported crimes for an additional day, 12-Nov-2018, to our dataset.**
 """
+one_day = spark.read.csv('/Users/yuawong/Downloads/reported-crimes.csv',
+                    header=True).withColumn('Date',
+                                            to_timestamp(col('Date'),
+                                                         'MM/dd/yyyy hh:mm:ss a')).filter(col('Date') == lit('2018-11-12'))
 
+one_day.count()
 
-
-
-
-
-
-
-
-
-
-
+rc.union(one_day).orderBy('Date', ascending=False).show(5)
 
 """**What are the top 10 number of reported crimes by Primary type, in descending order of occurence?**"""
-
+rc.groupby('Primary Type').count().orderBy('count', ascending=False).show(10)
 
 
 
