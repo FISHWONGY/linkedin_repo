@@ -3,12 +3,12 @@ import pandas as pd
 
 messages = pd.read_csv('./linkedin_repo/Advanced NLP with Python for Machine Learning/data/spam.csv',
                        encoding='latin-1')
-messages.head()
+print(messages.head())
 
 # Drop unused columns and label columns that will be used
-messages = messages.drop(labels = ["Unnamed: 2", "Unnamed: 3", "Unnamed: 4"], axis = 1)
+messages = messages.drop(labels=["Unnamed: 2", "Unnamed: 3", "Unnamed: 4"], axis=1)
 messages.columns = ["label", "text"]
-messages.head()
+print(messages.head())
 
 # How big is this dataset?
 print(messages.shape)
