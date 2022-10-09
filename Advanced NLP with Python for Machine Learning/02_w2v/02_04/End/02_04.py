@@ -22,7 +22,7 @@ w2v_model = gensim.models.Word2Vec(X_train,
 """### Prep Word Vectors"""
 
 # Generate a list of words the word2vec model learned word vectors for
-w2v_model.wv.index2word
+print(w2v_model.wv.index2word)
 
 # Generate aggregated sentence vectors based on the word vectors for each word in the sentence
 w2v_vect = np.array([np.array([w2v_model.wv[i] for i in ls if i in w2v_model.wv.index2word])

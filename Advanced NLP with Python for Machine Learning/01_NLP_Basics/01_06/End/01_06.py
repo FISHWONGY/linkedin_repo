@@ -23,7 +23,7 @@ tfidf_vect = TfidfVectorizer(analyzer=clean_text)
 X_tfidf = tfidf_vect.fit_transform(messages['text'])
 
 X_features = pd.DataFrame(X_tfidf.toarray())
-X_features.head()
+print(X_features.head())
 
 """### Explore RandomForestClassifier Attributes & Hyperparameters"""
 

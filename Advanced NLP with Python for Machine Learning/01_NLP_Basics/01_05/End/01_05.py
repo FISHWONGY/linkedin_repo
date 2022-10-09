@@ -34,5 +34,5 @@ print(X_tfidf.shape)
 print(tfidf_vect.get_feature_names())
 
 # How is the output of TfidfVectorizer stored?
-X_tfidf
+print(X_tfidf)
 

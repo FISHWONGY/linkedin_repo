@@ -10,8 +10,8 @@ dir(nltk)
 # Did it work?
 from nltk.corpus import stopwords
 
-stopwords.words('english')[0:5]
+print(stopwords.words('english')[0:5])
 
 # Let's look at additional words later in the list
-stopwords.words('english')[0:500:25]
+print(stopwords.words('english')[0:500:25])
 

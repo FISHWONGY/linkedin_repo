@@ -11,7 +11,7 @@ messages.columns = ["label", "text"]
 messages.head()
 
 # How big is this dataset?
-messages.shape
+print(messages.shape)
 
 # What portion of our text messages are actually spam?
 messages['label'].value_counts()

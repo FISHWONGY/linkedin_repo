@@ -13,7 +13,7 @@ messages.head()
 # What punctuation is included in the default list?
 import string
 
-string.punctuation
+print(string.punctuation)
 
 # Why is it important to remove punctuation?
 
@@ -28,7 +28,7 @@ def remove_punct(text):
 
 messages['text_clean'] = messages['text'].apply(lambda x: remove_punct(x))
 
-messages.head()
+print(messages.head())
 
 """### Tokenize"""
 
@@ -43,7 +43,7 @@ def tokenize(text):
 
 messages['text_tokenized'] = messages['text_clean'].apply(lambda x: tokenize(x.lower()))
 
-messages.head()
+print(messages.head())
 
 """### Remove Stopwords"""
 
@@ -65,7 +65,7 @@ def remove_stopwords(tokenized_text):
 
 messages['text_nostop'] = messages['text_tokenized'].apply(lambda x: remove_stopwords(x))
 
-messages.head()
+print(messages.head())
 
 # Remove stopwords in our example
 remove_stopwords(tokenize("I am learning NLP".lower()))

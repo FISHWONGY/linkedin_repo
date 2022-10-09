@@ -17,7 +17,7 @@ X_train, X_test, y_train, y_test = train_test_split(messages['text_clean'],
 tagged_docs = [gensim.models.doc2vec.TaggedDocument(v, [i]) for i, v in enumerate(X_train)]
 
 # Look at what a tagged document looks like
-tagged_docs[0]
+print(tagged_docs[0])
 
 # Train a basic doc2vec model
 d2v_model = gensim.models.Doc2Vec(tagged_docs,
