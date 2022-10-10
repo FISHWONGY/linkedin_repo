@@ -3,14 +3,16 @@ import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 
 # Load training data set from CSV file
-training_data_df = pd.read_csv("sales_data_training.csv", dtype=float)
+training_data_df = pd.read_csv("./linkedin_repo/Building and Deploying Deep Learning Applications with TensorFlow/"
+                               "03/sales_data_training.csv", dtype=float)
 
 # Pull out columns for X (data to train with) and Y (value to predict)
 X_training = training_data_df.drop('total_earnings', axis=1).values
 Y_training = training_data_df[['total_earnings']].values
 
 # Load testing data set from CSV file
-test_data_df = pd.read_csv("sales_data_test.csv", dtype=float)
+test_data_df = pd.read_csv("./linkedin_repo/Building and Deploying Deep Learning Applications with TensorFlow/"
+                           "03/sales_data_test.csv", dtype=float)
 
 # Pull out columns for X (data to train with) and Y (value to predict)
 X_testing = test_data_df.drop('total_earnings', axis=1).values
@@ -44,10 +46,23 @@ layer_2_nodes = 100
 layer_3_nodes = 50
 
 # Section One: Define the layers of the neural network itself
+model = tf.keras.Sequential([
+    tf.keras.layers.Flatten(input_shape=(9, 1)),
+    tf.keras.layers.Dense(units=512, activation='relu'),
+    tf.keras.layers.Dense(units=10, activation='softmax')
+])
+model.summary()
+model.compile(optimizer='adam',
+              loss='sparse_categorical_crossentropy',
+              metrics=['accuracy'])
+h = model.fit(X_scaled_training, Y_scaled_training, epochs=10, batch_size=256)
+eval_loss, eval_acc = model.evaluate(X_scaled_testing,
+                                     Y_scaled_testing)
+print('Test accuracy: {}'.format(eval_acc))
 
 # Input Layer
-with tf.variable_scope('input'):
-    X = tf.placeholder(tf.float32, shape=(None, number_of_inputs))
+with tf.compat.v1.variable_scope()('input'):
+    X = tf.compat.v1.placeholder(tf.float32, shape=(None, number_of_inputs))
 
 # Layer 1
 with tf.variable_scope('layer_1'):
