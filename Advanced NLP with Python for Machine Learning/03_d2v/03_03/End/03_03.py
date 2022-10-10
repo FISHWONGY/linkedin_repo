@@ -26,7 +26,7 @@ d2v_model = gensim.models.Doc2Vec(tagged_docs,
                                   min_count=2)
 
 # What happens if we pass in a single word like we did for word2vec?
-d2v_model.infer_vector('text')
+d2v_model.infer_vector(['text'])
 
 # What happens if we pass in a list of words?
 d2v_model.infer_vector(['i', 'am', 'learning', 'nlp'])

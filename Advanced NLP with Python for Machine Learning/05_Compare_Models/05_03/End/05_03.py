@@ -12,12 +12,12 @@ y_test = pd.read_csv('./linkedin_repo/Advanced NLP with Python for Machine Learn
 
 # Train a basic word2vec model
 w2v_model = gensim.models.Word2Vec(X_train,
-                                   size=100,
+                                   vector_size=100,
                                    window=5,
                                    min_count=2)
 
 # Replace the words in each text message with the learned word vector
-words = set(w2v_model.wv.index2word)
+words = set(w2v_model.wv.index_to_key)
 X_train_vect = np.array([np.array([w2v_model.wv[i] for i in ls if i in words])
                          for ls in X_train['clean_text']])
 X_test_vect = np.array([np.array([w2v_model.wv[i] for i in ls if i in words])
@@ -62,5 +62,5 @@ from sklearn.metrics import precision_score, recall_score
 precision = precision_score(y_test, y_pred)
 recall = recall_score(y_test, y_pred)
 print('Precision: {} / Recall: {} / Accuracy: {}'.format(
-    round(precision, 3), round(recall, 3), round((y_pred==y_test['label']).sum()/len(y_pred), 3)))
-
+    round(precision, 3), round(recall, 3), round((y_pred == y_test['label']).sum()/len(y_pred), 3)))
+# Precision: 0.566 / Recall: 0.204 / Accuracy: 0.874

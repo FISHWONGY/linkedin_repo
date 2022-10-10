@@ -44,5 +44,6 @@ from sklearn.metrics import precision_score, recall_score
 precision = precision_score(y_test, y_pred)
 recall = recall_score(y_test, y_pred)
 print('Precision: {} / Recall: {} / Accuracy: {}'.format(
-    round(precision, 3), round(recall, 3), round((y_pred==y_test['label']).sum()/len(y_pred), 3)))
+    round(precision, 3), round(recall, 3), round((y_pred == y_test['label']).sum()/len(y_pred), 3)))
 
+# Precision: 1.0 / Recall: 0.776 / Accuracy: 0.97

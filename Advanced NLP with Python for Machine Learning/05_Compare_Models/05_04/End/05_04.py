@@ -44,4 +44,4 @@ precision = precision_score(y_test, y_pred)
 recall = recall_score(y_test, y_pred)
 print('Precision: {} / Recall: {} / Accuracy: {}'.format(
     round(precision, 3), round(recall, 3), round((y_pred==y_test['label']).sum()/len(y_pred), 3)))
-
+# Precision: 0.908 / Recall: 0.401 / Accuracy: 0.916

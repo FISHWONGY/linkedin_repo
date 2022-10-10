@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 pd.set_option('display.max_colwidth', 1000)
 
 messages = pd.read_csv('./linkedin_repo/Advanced NLP with Python for Machine Learning/data/spam.csv', encoding='latin-1')
-messages = messages.drop(labels = ["Unnamed: 2", "Unnamed: 3", "Unnamed: 4"], axis = 1)
+messages = messages.drop(labels=["Unnamed: 2", "Unnamed: 3", "Unnamed: 4"], axis=1)
 messages.columns = ["label", "text"]
 labels = np.where(messages['label'] == 'spam', 1, 0)
 
@@ -15,7 +15,7 @@ X_train, X_test, y_train, y_test = train_test_split(messages['text'],
 """### Prep Data For Modeling"""
 # Import the tools we will need from keras
 from keras.preprocessing.text import Tokenizer
-from keras.preprocessing.sequence import pad_sequences
+from keras_preprocessing.sequence import pad_sequences
 
 # Initialize and fit the tokenizer
 tokenizer = Tokenizer()
@@ -84,7 +84,7 @@ for i in ['accuracy', 'precision_m', 'recall_m']:
     val_acc = history.history['val_{}'.format(i)]
     epochs = range(1, len(acc) + 1)
 
-    plt.figure()
+    plt.figure(figsize=(11, 7))
     plt.plot(epochs, acc, label='Training Accuracy')
     plt.plot(epochs, val_acc, label='Validation Accuracy')
     plt.title('Results for {}'.format(i))

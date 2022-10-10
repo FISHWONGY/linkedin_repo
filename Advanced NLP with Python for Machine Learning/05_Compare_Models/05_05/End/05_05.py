@@ -1,6 +1,6 @@
 # Load the cleaned training and test sets
 from keras.preprocessing.text import Tokenizer
-from keras.preprocessing.sequence import pad_sequences
+from keras_preprocessing.sequence import pad_sequences
 import pandas as pd
 
 X_train = pd.read_csv('./linkedin_repo/Advanced NLP with Python for Machine Learning/data/X_train.csv')
