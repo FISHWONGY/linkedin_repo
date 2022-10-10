@@ -1,6 +1,9 @@
 # Load pretrained word vectors using gensim
 import gensim.downloader as api
-
+import logging
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
+logging.basicConfig()
 wiki_embeddings = api.load('glove-wiki-gigaword-100')
 
 # Explore the word vector for "king"
@@ -33,7 +36,7 @@ X_train, X_test, y_train, y_test = train_test_split(messages['text_clean'],
 
 # Train the word2vec model
 w2v_model = gensim.models.Word2Vec(X_train,
-                                   size=100,
+                                   vector_size=100,
                                    window=5,
                                    min_count=2)
 
