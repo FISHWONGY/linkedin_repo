@@ -77,11 +77,13 @@ criterion = criterion.to(device)
 
 optimizer = optim.Adam(model.parameters())
 
+
 def accuracy(predictions, actual_label):
     max_predictions = predictions.argmax(dim = 1, keepdim = True, )
     correct_predictions = max_predictions.squeeze(1).eq(actual_label)
     accuracy = correct_predictions.sum() / torch.cuda.FloatTensor([actual_label.shape[0]])
     return accuracy
+
 
 def train(model, iterator, optimizer, criterion):
 
@@ -107,6 +109,7 @@ def train(model, iterator, optimizer, criterion):
         
     return epoch_loss / len(iterator), epoch_acc / len(iterator)
 
+
 def evaluate(model, iterator, criterion):
 
     model.eval()
@@ -127,6 +130,7 @@ def evaluate(model, iterator, criterion):
         
     return epoch_loss / len(iterator), epoch_acc / len(iterator)
 
+
 """**Training the model**"""
 
 number_of_epochs = 20
@@ -136,9 +140,9 @@ best_acc = float('-inf')
 for epoch in range(number_of_epochs):
     
     # Write the code here
-    train_loss, train_acc = 
+    train_loss, train_acc = train(model, train_iterator, optimizer, criterion)
     # Write the code here
-    valid_loss, valid_acc = 
+    valid_loss, valid_acc = evaluate(model, valid_iterator, criterion)
     
     if valid_acc > best_acc:
         # Write the code here

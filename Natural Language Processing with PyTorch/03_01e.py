@@ -31,7 +31,7 @@ LABEL = data.LabelField()
 """
 
 train, test = datasets.TREC.splits(TEXT, LABEL)
-train, val = train.split(random_state = random.seed(seed))
+train, val = train.split(random_state=random.seed(seed))
 
 vars(train[-1])
 
@@ -40,8 +40,8 @@ LABEL.build_vocab(train)
 
 print(LABEL.vocab.stoi)
 
-print("Vocabulary size of TEXT:",len(TEXT.vocab.stoi))
-print("Vocabulary size of LABEL:",len(LABEL.vocab.stoi))
+print("Vocabulary size of TEXT:", len(TEXT.vocab.stoi))
+print("Vocabulary size of LABEL:", len(LABEL.vocab.stoi))
 
 train_iterator, valid_iterator, test_iterator = data.BucketIterator.splits(
     (train, val, test),

@@ -2,14 +2,15 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
+
 class CNN(nn.Module):
-  def __init__(self, vocabulary_size, embedding_size, 
-               kernels_number, kernel_sizes, output_size, dropout_rate):
+  def __init__(self, vocabulary_size, embedding_size,
+                 kernels_number, kernel_sizes, output_size, dropout_rate):
     super().__init__()
     self.embedding = nn.Embedding(vocabulary_size, embedding_size)
     self.convolution_layers = nn.ModuleList([nn.Conv2d(in_channels=1, out_channels=kernels_number,
-                                                       kernel_size=(k, embedding_size))
-                                            for k in kernel_sizes])
+                                                         kernel_size=(k, embedding_size))
+                                              for k in kernel_sizes])
     self.dropout = nn.Dropout(dropout_rate)
     self.fully_connected = nn.Linear(len(kernel_sizes) * kernels_number, output_size)
 

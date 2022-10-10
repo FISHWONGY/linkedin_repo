@@ -36,6 +36,7 @@ train_iterator, valid_iterator, test_iterator = data.BucketIterator.splits(
 
 """**Building a Simple CNN Model**"""
 
+
 class CNN(nn.Module):
   def __init__(self, vocabulary_size, embedding_size, 
                kernels_number, kernel_sizes, output_size, dropout_rate):
@@ -82,9 +83,9 @@ optimizer = optim.Adam(model.parameters())
 
 
 def accuracy(predictions, actual_label):
-    max_predictions = predictions.argmax(dim = 1, keepdim = True, )
+    max_predictions = predictions.argmax(dim=1, keepdim=True, )
     correct_predictions = max_predictions.squeeze(1).eq(actual_label)
-    accuracy = correct_predictions.sum() / torch.cuda.FloatTensor([actual_label.shape[0]])
+    accuracy = correct_predictions.sum() / torch.FloatTensor([actual_label.shape[0]])
     return accuracy
 
 
@@ -161,4 +162,4 @@ model.load_state_dict(torch.load('trec.pt'))
 test_loss, test_acc = evaluate(model, test_iterator, criterion)
 
 print(f'Test Loss: {test_loss:.3f} | Test Acc: {test_acc*100:.2f}%')
-
+# Test Loss: 0.417 | Test Acc: 89.33%
