@@ -1,16 +1,17 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from EC_CV import *
+
 # %config InlineBackend.figure_formats = 'retina'
 
 # We'll work with 1 JPEG and 2 PNGs
-traffic = plt.imread('traffic.jpg')
-penguins = plt.imread('penguins.png')
-icepops = plt.imread('icepops.png')
+traffic = plt.imread("traffic.jpg")
+penguins = plt.imread("penguins.png")
+icepops = plt.imread("icepops.png")
 
 # Task #1: Find the RGBA file
 #
-# One of these images is a JPEG file, and the other two are PNGs. 
+# One of these images is a JPEG file, and the other two are PNGs.
 # One of the PNGs is encoded as RGB, and the other as RGBA.
 # Identify the PNG file that's encoded as RGBA.
 # You may do this any way you want: Get the dimensions, print a pixel, etc.
@@ -23,8 +24,8 @@ print(np.shape(icepops))
 
 # Task #2: Convert the images to an 8-bit unsigned integer RGB encoding
 #
-# Depending on each image, the type of its values may be a floating-point 
-# number or an integer. 
+# Depending on each image, the type of its values may be a floating-point
+# number or an integer.
 # Since we want to work with 8-bit RGB, we need to make sure all our
 # arrays are encoded that way.
 # Feel free to use the functions in the EC_CV.py source file (imported above).
@@ -32,7 +33,7 @@ print(np.shape(icepops))
 # Write your code here
 
 penguins = adapt_PNG(penguins)
-icepops = adapt_image(icepops*255) # Could've used adapt_PNG()
+icepops = adapt_image(icepops * 255)  # Could've used adapt_PNG()
 
 print(np.shape(traffic))
 print(type(traffic[0, 0, 0]))
@@ -53,14 +54,14 @@ plt.imshow(traffic)
 
 # Write your code here
 
-plt.axis('off')
+plt.axis("off")
 plt.imshow(penguins)
 
 # In this cell, display icepops, hiding its axes
 
 # Write your code here
 
-plt.axis('off')
+plt.axis("off")
 plt.imshow(icepops)
 
 # Task #4 (3 cells): Manipulate the images
@@ -71,7 +72,7 @@ plt.imshow(icepops)
 # Write your code here
 
 traffic = np.fliplr(traffic)
-plt.axis('off')
+plt.axis("off")
 plt.imshow(traffic)
 
 # In this cell, rotate penguins 90 degrees clockwise
@@ -82,25 +83,24 @@ plt.imshow(traffic)
 # Write your code here
 
 penguins = np.rot90(penguins, 3)
-plt.axis('off')
+plt.axis("off")
 plt.imshow(penguins)
 
 # Lastly, let's multiply icepops by 2
-# 
-# Don't modify this cell, just run it. 
+#
+# Don't modify this cell, just run it.
 # Then, run the next cell 8 times.
 
-# If you lose count, or you need to run the experiment again, 
+# If you lose count, or you need to run the experiment again,
 # you may rerun this cell to reset img to icepops.
 
 img = icepops
 
 # Run this cell 10 times and see what happens each time.
-# Don't modify this cell, just run it. 
+# Don't modify this cell, just run it.
 
-img *= 2 
-plt.axis('off')
+img *= 2
+plt.axis("off")
 plt.imshow(img)
 
 """## Can you explain what happened?"""
-
