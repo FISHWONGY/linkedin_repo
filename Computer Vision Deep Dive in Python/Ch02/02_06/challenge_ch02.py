@@ -1,0 +1,79 @@
+# Commented out IPython magic to ensure Python compatibility.
+# Run this cell to open 3 images.
+# Don't modify this cell.
+
+import numpy as np
+import matplotlib.pyplot as plt
+from EC_CV import *
+# %config InlineBackend.figure_formats = 'retina'
+
+# We'll work with 1 JPEG and 2 PNGs
+traffic = plt.imread('traffic.jpg')
+penguins = plt.imread('penguins.png')
+icepops = plt.imread('icepops.png')
+
+# Task #1: Find the RGBA file
+#
+# One of these images is a JPEG file, and the other two are PNGs. 
+# One of the PNGs is encoded as RGB, and the other as RGBA.
+# Identify the PNG file that's encoded as RGBA.
+# You may do this any way you want: Get the dimensions, print a pixel, etc.
+
+# Write your code here
+
+# Task #2: Convert the images to an 8-bit unsigned integer RGB encoding
+#
+# Depending on each image, the type of its values may be a floating-point 
+# number or an integer. 
+# Since we want to work with 8-bit RGB, we need to make sure all our
+# arrays are encoded that way.
+# Feel free to use the functions in the EC_CV.py source file (imported above).
+
+# Write your code here
+
+# Task #3 (3 cells): Print the images
+#
+# In this cell, display traffic, showing its axes
+
+# Write your code here
+
+# In this cell, display penguins, hiding its axes
+
+# Write your code here
+
+# In this cell, display icepops, hiding its axes
+
+# Write your code here
+
+# Task #4 (3 cells): Manipulate the images
+#
+# In this cell, flip traffic horizontally (mirror image)
+# and display the resulting image
+
+# Write your code here
+
+# In this cell, rotate penguins 90 degrees clockwise
+# and display the resulting image.
+#
+# This rotation means -90 degrees, or +270 degrees.
+
+# Write your code here
+
+# Lastly, let's multiply icepops by 2
+# 
+# Don't modify this cell, just run it. 
+# Then, run the next cell 10 times.
+
+# If you lose count, or you need to run the experiment again, 
+# you may rerun this cell to reset img to icepops.
+
+img = icepops
+
+# Run this cell 10 times and see what happens each time.
+# Don't modify this cell, just run it. 
+
+img *= 2 
+plt.axis('off')
+plt.imshow(img)
+
+"""## Can you explain what happened?"""
